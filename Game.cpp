@@ -22,6 +22,14 @@ Game::~Game()
 
 //Functions
 
+void Game::updateDt()
+{
+    /*Updates th dt variable with the time it takes to update and render one frame.*/
+    this->dt = this->dtClock.restart().asSeconds();
+    system("cls");
+    std::cout << this->dt << "\n";
+}
+
 void Game::updateSFMLEvents()
 {
     
@@ -51,7 +59,7 @@ void Game::run()
 {
     while (this->window->isOpen())
     {
-       
+        this->updateDt();
         this->update();
         this->render();
     }
