@@ -29,11 +29,16 @@ void Game::initWindow()
 
 void Game::initKeys()
 {
-    this->supportedKeys.emplace("Escape", sf::Keyboard::Key::Escape);
-    this->supportedKeys.emplace("A", sf::Keyboard::Key::A);
-    this->supportedKeys.emplace("D", sf::Keyboard::Key::D);
-    this->supportedKeys.emplace("W", sf::Keyboard::Key::W);
-    this->supportedKeys.emplace("S", sf::Keyboard::Key::S);
+    this->supportedKeys["Escape"] = sf::Keyboard::Key::Escape;
+    this->supportedKeys["A"] = sf::Keyboard::Key::A;
+    this->supportedKeys["D"] = sf::Keyboard::Key::D;
+    this->supportedKeys["W"] = sf::Keyboard::Key::W;
+    this->supportedKeys["S"] = sf::Keyboard::Key::S;
+
+    for (auto i : this->supportedKeys)
+    {
+        std::cout << i.first << " " << i.second << "\n";
+    }
 }
 
 void Game::initStates()
@@ -73,8 +78,8 @@ void Game::updateDt()
 {
     /*Updates th dt variable with the time it takes to update and render one frame.*/
     this->dt = this->dtClock.restart().asSeconds();
-    system("cls");
-    std::cout << this->dt << "\n";
+    //system("cls");
+    //std::cout << this->dt << "\n";
 }
 
 void Game::updateSFMLEvents()
