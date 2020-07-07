@@ -1,25 +1,14 @@
 #ifndef STATE_H
 #define STATE_H
 
-#include <iostream>
-#include <ctime>
-#include <cstdlib>
-#include<fstream>
-#include<sstream>
-#include<vector>
-#include<stack>
-#include<map>
+#include "Entity.h"
 
-#include "SFML/System.hpp"
-#include "SFML/Window.hpp"
-#include "SFML/Graphics.hpp"
-#include "SFML/Audio.hpp"
-#include "SFML/Network.hpp"
-#include<vector>
 
 class State
 {
 private:
+
+protected:
 	sf::RenderWindow* window;
 	std::vector<sf::Texture> textures;
 	bool quit;
