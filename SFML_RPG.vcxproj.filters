@@ -33,6 +33,9 @@
     <ClCompile Include="Entity.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="MainMenuState.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -45,6 +48,9 @@
       <Filter>States</Filter>
     </ClInclude>
     <ClInclude Include="Entity.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenuState.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
