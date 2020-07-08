@@ -20,7 +20,7 @@ protected:
 	sf::Vector2f mousePosView;
 
 	//Ressources
-	std::vector<sf::Texture> textures;
+	std::map<std::string, sf::Texture> textures;
 
 	//Functions
 	virtual void initKeybinds() = 0;
