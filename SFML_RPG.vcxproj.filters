@@ -16,6 +16,12 @@
     <Filter Include="States">
       <UniqueIdentifier>{f5c3d6ca-5e34-4d10-b275-5e079cde76e4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Entities">
+      <UniqueIdentifier>{62bbe86d-5c3c-45d6-9c17-d742f0a56568}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components">
+      <UniqueIdentifier>{a28879c4-23d0-4be3-a49d-ba16a763be5c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -30,17 +36,20 @@
     <ClCompile Include="GameState.cpp">
       <Filter>States</Filter>
     </ClCompile>
-    <ClCompile Include="Entity.cpp">
-      <Filter>Quelldateien</Filter>
+    <ClCompile Include="Button.cpp">
+      <Filter>Ressourcendateien</Filter>
     </ClCompile>
     <ClCompile Include="MainMenuState.cpp">
-      <Filter>Quelldateien</Filter>
+      <Filter>States</Filter>
     </ClCompile>
-    <ClCompile Include="Button.cpp">
-      <Filter>Quelldateien</Filter>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Entities</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
-      <Filter>Quelldateien</Filter>
+      <Filter>Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="MovementComponent.cpp">
+      <Filter>Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -53,17 +62,20 @@
     <ClInclude Include="GameState.h">
       <Filter>States</Filter>
     </ClInclude>
-    <ClInclude Include="Entity.h">
-      <Filter>Headerdateien</Filter>
+    <ClInclude Include="Button.h">
+      <Filter>Ressourcendateien</Filter>
     </ClInclude>
     <ClInclude Include="MainMenuState.h">
-      <Filter>Headerdateien</Filter>
+      <Filter>States</Filter>
     </ClInclude>
-    <ClInclude Include="Button.h">
-      <Filter>Headerdateien</Filter>
+    <ClInclude Include="Entity.h">
+      <Filter>Entities</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
-      <Filter>Headerdateien</Filter>
+      <Filter>Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="MovementComponent.h">
+      <Filter>Components</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
