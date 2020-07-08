@@ -13,10 +13,15 @@
 #include "SFML/Window.hpp"
 #include "SFML/Graphics.hpp"
 
-
+enum button_states { BTN_IDLE = 0, BTN_HOVER, BTN_ACTIVE};
 class Button
 {
 private:
+	short unsigned buttonState;
+
+	bool pressed;
+	bool hover;
+
 	sf::RectangleShape shape;
 	sf::Font* font;
 	sf::Text text;
@@ -30,7 +35,8 @@ public:
 		sf::Font * font, std::string text,
 		sf::Color idleColor, sf::Color hoverColor, sf::Color activeColor);
 	virtual ~Button();
-
+	//Accessors
+	const bool isPressed() const;
 	//Functions
 	void update(const sf::Vector2f mousePos);
 	void render(sf::RenderTarget* target);

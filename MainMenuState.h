@@ -12,6 +12,8 @@ private:
 	sf::RectangleShape background;
 	sf::Font font;
 
+	Button* gamestate_btn;
+
 	//Functions
 	void initFonts();
 	void initKeybinds();
