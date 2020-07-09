@@ -1,6 +1,7 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
+#include "HitboxComponet.h"
 #include "MovementComponent.h"
 #include "AnimationComponent.h"
 
@@ -13,6 +14,7 @@ protected:
 
 	sf::Sprite sprite;
 
+	HitboxComponet* hitboxComponent;
 	MovementComponent* movementComponent;
 	AnimationComponent* animationComponent;
 

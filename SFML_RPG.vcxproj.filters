@@ -57,6 +57,9 @@
     <ClCompile Include="EditorState.cpp">
       <Filter>States</Filter>
     </ClCompile>
+    <ClCompile Include="HitboxComponet.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="State.h">
@@ -88,6 +91,9 @@
     </ClInclude>
     <ClInclude Include="Game.h">
       <Filter>Quelldateien</Filter>
+    </ClInclude>
+    <ClInclude Include="HitboxComponet.h">
+      <Filter>Components</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
