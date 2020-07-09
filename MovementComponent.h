@@ -36,7 +36,7 @@ public:
 	//Accessorrs
 	const sf::Vector2f& getVelocity() const;
 	//Functions
-	void move(const float x, const float y, const float &dt);
+	void move(const float x, const float y);
 	void update(const float& dt);
 };
 #endif
