@@ -19,14 +19,14 @@ void GameState::initKeybinds()
 
 void GameState::initTextures()
 {
-	if(!this->textures["PLAYER_IDLE"].loadFromFile("Resources/Images/Sprites/Avatar/tiles0721_16.png"))
-	//if(!this->textures["PLAYER_IDLE"].loadFromFile("Resources/Images/Sprites/Player/sword.png"))
+	//f(!this->textures["PLAYER_IDLE"].loadFromFile("Resources/Images/Sprites/Avatar/tiles0721_16.png"))
+	if(!this->textures["PLAYER_SHEET"].loadFromFile("Resources/Images/Sprites/Player/PLAYER_SHEET.png"))
 		throw("ERROR::GEMESTATE::COULD_NOT_LOAD_PLAYER_IDLE_TEXTURE");
 }
 
 void GameState::initPlayers()
 {
-	this->player = new Player(0, 0, this->textures["PLAYER_IDLE"]);
+	this->player = new Player(0, 0, this->textures["PLAYER_SHEET"]);
 }
 
 GameState::GameState(sf::RenderWindow* window, std::map<std::string, int>* supportedKeys, std::stack<State*>* states) : State(window, supportedKeys, states)
