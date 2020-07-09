@@ -38,7 +38,7 @@ void Entity::setPosition(const float x, const float y)
 void Entity::move(const float dir_x, const float dir_y, const float& dt)
 {
 	if (this->movementComponent) {
-		this->movementComponent->move(dir_x, dir_y, dt); //Sets velocity
+		this->movementComponent->move(dir_x, dir_y); //Sets velocity
 		
 	}
 }
