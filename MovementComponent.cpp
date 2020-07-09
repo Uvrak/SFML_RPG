@@ -17,6 +17,13 @@ const sf::Vector2f& MovementComponent::getVelocity() const
 	return this->velocity;
 }
 
+const bool MovementComponent::idle() const
+{
+	if (this->velocity.x == 0.f && this->velocity.y == 0.f) 
+		return true;
+	return false;
+}
+
 //Functions
 void MovementComponent::move(const float dir_x, const float dir_y)
 {
