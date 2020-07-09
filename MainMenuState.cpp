@@ -112,6 +112,13 @@ void MainMenuState::updateButtons()
 		this->states->push(new GameState(this->window, this->supportedKeys, this->states));
 	}
 
+	//Settings
+
+	//Editor
+	if (this->buttons["EDITOR_STATE"]->isPressed()) {
+		this->states->push(new EditorState(this->window, this->supportedKeys, this->states));
+	}
+
 	//Quit the Game
 	if (this->buttons["EXIT_STATE"]->isPressed()) {
 		this->endState();
