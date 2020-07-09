@@ -54,19 +54,19 @@ void MainMenuState::initButtons()
 		sf::Color(70, 70, 70, 0), sf::Color(150, 150, 150, 0), sf::Color(20, 20, 20, 0)
 	);
 
-	this->buttons["SETTINGS"] = new Button(300, 580, 250, 50,
+	this->buttons["SETTINGS"] = new Button(300.f, 580.f, 250.f, 50.f,
 		&this->font, "Settings", 50,
 		sf::Color(70, 70, 70, 200), sf::Color(250, 250, 250, 250), sf::Color(20, 20, 20, 50),
 		sf::Color(70, 70, 70, 0), sf::Color(150, 150, 150, 0), sf::Color(20, 20, 20, 0)
 	);
 	
-	this->buttons["EDITOR_STATE"] = new Button(300, 680, 250, 50,
+	this->buttons["EDITOR_STATE"] = new Button(300.f, 680.f, 250.f, 50.f,
 		&this->font, "Editor", 50,
 		sf::Color(70, 70, 70, 200), sf::Color(250, 250, 250, 250), sf::Color(20, 20, 20, 50),
 		sf::Color(70, 70, 70, 0), sf::Color(150, 150, 150, 0), sf::Color(20, 20, 20, 0)
 	);
 
-	this->buttons["EXIT_STATE"] = new Button(300, 880, 250, 50,
+	this->buttons["EXIT_STATE"] = new Button(300.f, 880.f, 250.f, 50.f,
 		&this->font, "Quit", 50,
 		sf::Color(70, 70, 70, 200), sf::Color(250, 250, 250, 250), sf::Color(20, 20, 20, 50),
 		sf::Color(100, 100, 100, 0), sf::Color(150, 150, 150, 0), sf::Color(20, 20, 20, 0)

@@ -19,7 +19,8 @@ void GameState::initKeybinds()
 
 void GameState::initTextures()
 {
-	if(!this->textures["PLAYER_IDLE"].loadFromFile("Resources/Images/Sprites/Player/sword.png"))
+	if(!this->textures["PLAYER_IDLE"].loadFromFile("Resources/Images/Sprites/Avatar/tiles0721_16.png"))
+	//if(!this->textures["PLAYER_IDLE"].loadFromFile("Resources/Images/Sprites/Player/sword.png"))
 		throw("ERROR::GEMESTATE::COULD_NOT_LOAD_PLAYER_IDLE_TEXTURE");
 }
 
