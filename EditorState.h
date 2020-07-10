@@ -2,7 +2,7 @@
 #define EDITORSTATE_H
 
 #include "State.h"
-#include "Button.h"
+
 class EditorState :
 	public State
 {
@@ -10,7 +10,7 @@ private:
 	//Variables
 	sf::Font font;
 
-	std::map<std::string, Button*> buttons;
+	std::map<std::string, gui::Button*> buttons;
 
 	//Functions
 	void initVariables();
