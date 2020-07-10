@@ -35,15 +35,17 @@ void Player::update(const float& dt)
 {
 	this->movementComponent->update(dt);
 
-#	/*if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) 
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) 
 	{
 		this->attacking = true;
 		
-	}*/
+	}
 
 	if (this->attacking)
 	{
-		this->animationComponent->play("ATTACK", dt, true);
+		if(this->animationComponent->play("ATTACK", dt, true))
+			this->attacking = false;
+			
 	}
 	
 	if (this->movementComponent->getState(IDLE))
