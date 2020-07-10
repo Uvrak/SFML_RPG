@@ -67,7 +67,11 @@ namespace gui
 
 	public:
 		//Constructors /Destructors
-		DropDownList(sf::Font& font, std::string list[], unsigned nr_off_elements, unsigned default_index = 0);
+		DropDownList(float x, float y, float width, float height, 
+			sf::Font& font, std::string list[],
+			unsigned nr_off_elements, unsigned default_index = 0
+		);
+
 		virtual ~DropDownList();
 
 		//Functions

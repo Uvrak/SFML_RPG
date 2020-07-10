@@ -12,6 +12,8 @@ private:
 
 	std::map<std::string, gui::Button*> buttons;
 
+	gui::DropDownList* ddl;
+
 	//Functions
 	void initVariables();
 	void initBackground();
