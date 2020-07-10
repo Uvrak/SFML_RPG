@@ -85,7 +85,7 @@ MainMenuState::MainMenuState(sf::RenderWindow* window, std::map<std::string, int
 
 MainMenuState::~MainMenuState()
 {
-	//auto it = this->buttons.begin();
+	
 	for (auto it = this->buttons.begin(); it != this->buttons.end(); ++it) {
 		delete it->second;
 	}

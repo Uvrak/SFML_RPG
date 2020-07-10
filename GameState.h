@@ -3,12 +3,13 @@
 
 #include "State.h"
 #include "Player.h"
+#include "PauseMenu.h"
 
 class GameState :public State
 {
 private:
 	Player *player;
-
+	PauseMenu pMenu;
 	//Functions
 	void initKeybinds();
 	void initTextures();

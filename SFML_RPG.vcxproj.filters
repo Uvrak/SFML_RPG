@@ -25,6 +25,9 @@
     <Filter Include="Tile">
       <UniqueIdentifier>{f13da6fc-10db-4662-96ed-14d9fff2252e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GUI">
+      <UniqueIdentifier>{1f79f494-3aed-4f66-80c7-797a7d3c3238}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -66,6 +69,9 @@
     <ClCompile Include="Tile.cpp">
       <Filter>Tile</Filter>
     </ClCompile>
+    <ClCompile Include="PauseMenu.cpp">
+      <Filter>GUI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="State.h">
@@ -103,6 +109,9 @@
     </ClInclude>
     <ClInclude Include="Tile.h">
       <Filter>Tile</Filter>
+    </ClInclude>
+    <ClInclude Include="PauseMenu.h">
+      <Filter>GUI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
