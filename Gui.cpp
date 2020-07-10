@@ -106,7 +106,7 @@ void gui::Button::render(sf::RenderTarget& target)
 //DROP DOWN LIST
 //Constructors /Destructors
 gui::DropDownList::DropDownList(sf::Font& font, std::string list[], unsigned nr_off_elements, unsigned default_index)
-	:font(font)
+	:font(font), showList(false), keytimeMax(1.f), keytime(keytimeMax)
 {
 	for (int i = 0; i < nr_off_elements; i++) 
 	{
@@ -118,7 +118,7 @@ gui::DropDownList::DropDownList(sf::Font& font, std::string list[], unsigned nr_
 		));
 	}
 
-	this->activeElement = new Button(this->list[default_index]);
+	this->activeElement = new Button(*this->list[default_index]);
 }
 
 gui::DropDownList::~DropDownList()
@@ -128,11 +128,58 @@ gui::DropDownList::~DropDownList()
 		delete i;
 }
 
-//Functions
-void gui::DropDownList::update(const sf::Vector2f& mousePos)
+//Accessors
+const bool gui::DropDownList::getKeytime()
 {
+	if (this->keytime >= this->keytimeMax)
+	{
+		this->keytime = 0.f;
+		return true;
+	}
+	return false;
+}
+
+//Functions
+void gui::DropDownList::updateKeytime(const float& dt)
+{
+	if (this->keytime < this->keytimeMax)
+	{
+		this->keytime += 10.f * dt;
+	}
+}
+
+void gui::DropDownList::update(const sf::Vector2f& mousePos, const float& dt)
+{
+	this->updateKeytime(dt);
+
+	this->activeElement->update(mousePos);
+
+	if (this->activeElement->isPressed() && this->getKeytime()) {
+		if (this->showList)
+			this->showList = false;
+		else
+			this->showList = true;
+
+	}
+	if (this->showList) 
+	{
+		for (auto& i : this->list) 
+		{
+			i->update(mousePos);
+		}
+	}
+	
 }
 
 void gui::DropDownList::render(sf::RenderTarget& target)
 {
+	this->activeElement->render(target);
+
+	if (this->showList) 
+	{
+		for (auto& i : this->list)
+		{
+			i->render(target);
+		}
+	}
 }
