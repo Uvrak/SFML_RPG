@@ -166,6 +166,11 @@ gui::DropDownList::~DropDownList()
 		delete this->list[i];
 }
 
+const unsigned short& gui::DropDownList::getActiveElementId() const
+{
+	return this->activeElement->getId();
+}
+
 //Accessors
 const bool gui::DropDownList::getKeytime()
 {
