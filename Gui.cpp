@@ -1,4 +1,6 @@
+#include "stdafx.h"
 #include "Gui.h"
+
 //Button
 //Constructors / destructors
 gui::Button::Button(float x, float y, float width, float height,

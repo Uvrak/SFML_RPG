@@ -4,14 +4,6 @@
 #include "Entity.h"
 #include "Gui.h"
 
-#include "SFML/System.hpp"
-#include "SFML/Window.hpp"
-#include "SFML/Graphics.hpp"
-#include "SFML/Audio.hpp"
-#include "SFML/Network.hpp"
-
-
-
 class State
 {
 private:

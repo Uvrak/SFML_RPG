@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "TileMap.h"
 
 TileMap::TileMap()
@@ -7,14 +8,14 @@ TileMap::TileMap()
 	this->maxSize.y = 5000;
 	this->layers = 5;
 
-	for (int x = 0; x < this->maxSize.x; x++)
+	for (auto x = 0; x < this->maxSize.x; x++)
 	{
 		this->map.push_back(std::vector < std::vector < Tile > >());
-		for (int y = 0; y < this->maxSize.y; y++)
+		for (auto y = 0; y < this->maxSize.y; y++)
 		{
 			this->map[x].push_back(std::vector <Tile>());
 
-			for (int l = 0; l < this->layers; l++) 
+			for (auto l = 0; l < this->layers; l++) 
 			{
 				this->map[x][y].push_back(Tile());
 			}
