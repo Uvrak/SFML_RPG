@@ -1,7 +1,7 @@
 #include "AnimationComponent.h"
 
 AnimationComponent::AnimationComponent(sf::Sprite& sprite, sf::Texture& texture_sheet)
-	: sprite(sprite), textureSheet(texture_sheet), lastAnimation(nullptr)
+	: sprite(sprite), textureSheet(texture_sheet), lastAnimation(nullptr), priorityAnimation(nullptr)
 {
 	std::cout << "AnimationComponent: " << &this->textureSheet << "\n";
 	std::cout << "AnimationComponent: " << &texture_sheet << "\n";
@@ -9,6 +9,8 @@ AnimationComponent::AnimationComponent(sf::Sprite& sprite, sf::Texture& texture_
 
 AnimationComponent::~AnimationComponent()
 {
+	delete lastAnimation;
+	delete priorityAnimation;
 	for (auto& i : this->animations) {
 		delete i.second;
 	}
@@ -26,7 +28,7 @@ void AnimationComponent::addAnimation(const std::string key,
 	);
 }
 
-void AnimationComponent::play(const std::string key, const float& dt)
+void AnimationComponent::play(const std::string key, const float& dt, const bool priority)
 {
 	if (this->lastAnimation != this->animations[key])
 	{
@@ -42,7 +44,7 @@ void AnimationComponent::play(const std::string key, const float& dt)
 	this->animations[key]->play(dt);
 }
 
-void AnimationComponent::play(const std::string key, const float& dt, const float& modifier, const float& modifier_max)
+void AnimationComponent::play(const std::string key, const float& dt, const float& modifier, const float& modifier_max, const bool priority)
 {
 	if (this->lastAnimation != this->animations[key])
 	{
@@ -55,5 +57,5 @@ void AnimationComponent::play(const std::string key, const float& dt, const floa
 		}
 
 	}
-	this->animations[key]->play(dt);
+	this->animations[key]->play(dt, abs(modifier / modifier_max));
 }
