@@ -2,6 +2,14 @@
 #define STATE_H
 
 #include "Entity.h"
+#include "Button.h"
+
+#include "SFML/System.hpp"
+#include "SFML/Window.hpp"
+#include "SFML/Graphics.hpp"
+#include "SFML/Audio.hpp"
+#include "SFML/Network.hpp"
+
 
 
 class State
