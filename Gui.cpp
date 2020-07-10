@@ -45,7 +45,7 @@ const bool gui::Button::isPressed() const
 	return false;
 }
 
-const std::string& gui::Button::getText() const
+const std::string gui::Button::getText() const
 {
 	return this->text.getString();
 }
@@ -110,17 +110,25 @@ gui::DropDownList::DropDownList(float x, float y, float width, float height,
 	unsigned nr_off_elements, unsigned default_index)
 	:font(font), showList(false), keytimeMax(1.f), keytime(0.f)
 {
+
+	this->activeElement = new gui::Button(
+		x, y, width, height,
+		&this->font, list[default_index], 14,
+		sf::Color(255, 255, 255, 200), sf::Color(255, 255, 255, 255), sf::Color(20, 20, 20, 50),
+		sf::Color(70, 70, 70, 200), sf::Color(150, 150, 150, 200), sf::Color(20, 20, 20, 200)
+	);
+
 	for (int i = 0; i < nr_off_elements; i++) 
 	{
 		this->list.push_back(new gui::Button(
-			x, y + (i * height), width, height,
-			&this->font, list[i], 12,
+			x, y + ((i + 1) * height), width, height,
+			&this->font, list[i], 14,
 			sf::Color(255, 255, 255, 150), sf::Color(255, 255, 255, 255), sf::Color(20, 20, 20, 50),
 			sf::Color(70, 70, 70, 200), sf::Color(150, 150, 150, 200), sf::Color(20, 20, 20, 200)
 		));
 	}
 
-	this->activeElement = new Button(*this->list[default_index]);
+	
 }
 
 gui::DropDownList::~DropDownList()
@@ -169,6 +177,12 @@ void gui::DropDownList::update(const sf::Vector2f& mousePos, const float& dt)
 		for (auto& i : this->list) 
 		{
 			i->update(mousePos);
+
+			if (i->isPressed() && this->getKeytime())
+			{
+				this->showList = false;
+				this->activeElement->setText(i->getText());
+			}
 		}
 	}
 	
