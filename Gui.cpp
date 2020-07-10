@@ -45,6 +45,17 @@ const bool gui::Button::isPressed() const
 	return false;
 }
 
+const std::string& gui::Button::getText() const
+{
+	return this->text.getString();
+}
+
+//Modifiers
+void gui::Button::setText(const std::string text)
+{
+	this->text.setString(text);
+}
+
 //Functions
 
 void gui::Button::update(const sf::Vector2f& mousePos)
@@ -91,7 +102,32 @@ void gui::Button::render(sf::RenderTarget& target)
 	target.draw(this->text);
 }
 
+
 //DROP DOWN LIST
+//Constructors /Destructors
+gui::DropDownList::DropDownList(sf::Font& font, std::string list[], unsigned nr_off_elements, unsigned default_index)
+	:font(font)
+{
+	for (int i = 0; i < nr_off_elements; i++) 
+	{
+		this->list.push_back(new gui::Button(
+			300.f, 480.f, 250.f, 50.f,
+			&this->font, list[i], 50,
+			sf::Color(70, 70, 70, 200), sf::Color(250, 250, 250, 250), sf::Color(20, 20, 20, 50),
+			sf::Color(70, 70, 70, 0), sf::Color(150, 150, 150, 0), sf::Color(20, 20, 20, 0)
+		));
+	}
+
+	this->activeElement = new Button(this->list[default_index]);
+}
+
+gui::DropDownList::~DropDownList()
+{
+	delete this->activeElement;
+	for (auto*& i : this->list)
+		delete i;
+}
+
 //Functions
 void gui::DropDownList::update(const sf::Vector2f& mousePos)
 {
