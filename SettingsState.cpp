@@ -72,11 +72,18 @@ void SettingsState::initKeybinds()
 void SettingsState::initGui()
 {
 
-	this->buttons["EXIT_STATE"] = new gui::Button(900.f, 880.f, 250.f, 50.f,
+	this->buttons["BACK"] = new gui::Button(1500.f, 880.f, 250.f, 50.f,
 		&this->font, "Back", 50,
 		sf::Color(70, 70, 70, 200), sf::Color(250, 250, 250, 250), sf::Color(20, 20, 20, 50),
 		sf::Color(100, 100, 100, 0), sf::Color(150, 150, 150, 0), sf::Color(20, 20, 20, 0)
 	);
+
+	this->buttons["APPLY"] = new gui::Button(1300.f, 880.f, 250.f, 50.f,
+		&this->font, "Apply", 50,
+		sf::Color(70, 70, 70, 200), sf::Color(250, 250, 250, 250), sf::Color(20, 20, 20, 50),
+		sf::Color(100, 100, 100, 0), sf::Color(150, 150, 150, 0), sf::Color(20, 20, 20, 0)
+	);
+
 	std::string li[] = { "1920x1080", "800x600", "640x480" };
 	this->dropDownLinsts["RESOLUTION"] = new gui::DropDownList(800, 450, 200, 50, font, li, 3);
 }
@@ -101,9 +108,16 @@ void SettingsState::updateGui(const float& dt)
 	}
 
 	//Quit the Game
-	if (this->buttons["EXIT_STATE"]->isPressed()) {
+	if (this->buttons["APPLY"]->isPressed()) {
+		
+	}
+
+
+	//Applay selected setting
+	if (this->buttons["BACK"]->isPressed()) {
 		this->endState();
 	}
+
 
 	//Dropdownlist
 	for (auto i : this->dropDownLinsts)
