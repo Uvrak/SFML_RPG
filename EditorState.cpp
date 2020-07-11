@@ -4,6 +4,7 @@
 //Initializer functions
 void EditorState::initVariables()
 {
+	this->textureRect= sf::IntRect(0, 0, static_cast<int>(this->stateData->gridSize), static_cast<int>(this->stateData->gridSize));
 }
 
 void EditorState::initBackground()
@@ -103,12 +104,22 @@ void EditorState::updateEditorInput(const float& dt)
 	//Add a tile to the tilemap
 	if(sf::Mouse::isButtonPressed(sf::Mouse::Left) && this->getKeytime())
 	{
-		this->tileMap->addTile(this->mousePosGrid.x ,this->mousePosGrid.y, 0);
+		this->tileMap->addTile(this->mousePosGrid.x ,this->mousePosGrid.y, 0, this->textureRect);
 	}
 	//Remove a tile from the tilemap
 	else if(sf::Mouse::isButtonPressed(sf::Mouse::Right) && this->getKeytime())
 	{
 		this->tileMap->removeTile(this->mousePosGrid.x, this->mousePosGrid.y, 0);
+	}
+
+	//change texture;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) 
+	{
+		if(this->textureRect.left < 200)
+		{
+			this->textureRect.left += 100;
+		}
+
 	}
 }
 
@@ -194,7 +205,8 @@ void EditorState::render(sf::RenderTarget* target)
 	mouseText.setFont(this->font);
 	mouseText.setCharacterSize(12);
 	std::stringstream ss;
-	ss << this->mousePosView.x << " " << this->mousePosView.y;
+	ss << this->mousePosView.x << " " << this->mousePosView.y << "\n" 
+		<< this->textureRect.left << " " << this->textureRect.top;
 	mouseText.setString(ss.str());
 
 	target->draw(mouseText);

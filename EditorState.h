@@ -22,6 +22,8 @@ private:
 
 	TileMap* tileMap;
 
+	sf::IntRect textureRect;
+
 	sf::RectangleShape selectorRect;
 
 	//Functions
