@@ -10,7 +10,7 @@ private:
 	unsigned gridSizeU;
 	unsigned layers;
 	sf::Vector2u maxSize;
-	std::vector< std::vector< std::vector < Tile > > > map;
+	std::vector< std::vector< std::vector < Tile* > > > map;
 public:
 	TileMap(float gridSize, unsigned width, unsigned height);
 	virtual ~TileMap();

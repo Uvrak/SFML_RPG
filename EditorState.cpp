@@ -108,7 +108,7 @@ void EditorState::updateButtons()
 
 void EditorState::updateGui()
 {
-	this->selectorRect.setPosition(this->mousePosView);
+	this->selectorRect.setPosition(this->mousePosGrid.x * this->stateData->gridSize, this->mousePosGrid.y * this->stateData->gridSize);
 }
 
 void EditorState::updatePauseMenuButtons()
@@ -161,9 +161,11 @@ void EditorState::render(sf::RenderTarget* target)
 
 
 	this->renderButtons(*target);
-	this->renderGui(*target);
+	
 
 	this->tileMap->render(*target);
+
+	this->renderGui(*target);
 
 	if(this->paused)
 	{

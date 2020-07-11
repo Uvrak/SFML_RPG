@@ -8,19 +8,20 @@ TileMap::TileMap(float gridSize, unsigned width, unsigned height)
 	this->maxSize.y = height;
 	this->layers = 1;
 
-	//this->map.resize(this->maxSize.x);
+	this->map.resize(this->maxSize.x);
 	for (auto x = 0; x < this->maxSize.x; x++)
 	{
-		this->map.push_back(std::vector < std::vector < Tile > >());
+		this->map.push_back(std::vector < std::vector < Tile* > >());
 		for (auto y = 0; y < this->maxSize.y; y++)
 		{
-			//this->map.resize(this->maxSize.y);
-			this->map[x].push_back(std::vector <Tile>());
+			this->map.resize(this->maxSize.y);
+			this->map[x].push_back(std::vector <Tile*>());
 
 			for (auto l = 0; l < this->layers; l++)
 			{
-				//this->map[x][y].resize(this->layers);
-				this->map[x][y].push_back(Tile(x * this->gridSizeF, y * this->gridSizeF, this->gridSizeF));
+				this->map[x][y].resize(this->layers);
+				this->map[x][y].push_back(nullptr);
+				
 			}
 		}
 	}
@@ -28,6 +29,16 @@ TileMap::TileMap(float gridSize, unsigned width, unsigned height)
 
 TileMap::~TileMap()
 {
+	for (auto x = 0; x < this->maxSize.x; x++)
+	{
+		for (auto y = 0; y < this->maxSize.y; y++)
+		{
+			for (auto l = 0; l < this->layers; l++)
+			{
+				delete this->map[x][y][l];
+			}
+		}
+	}
 }
 
 //Functions
@@ -43,7 +54,8 @@ void TileMap::render(sf::RenderTarget& target)
 		{
 			for(auto& l : y)
 			{
-				l.render(target);
+				if (l != nullptr)
+					l->render(target);
 			}
 		}
 	}
