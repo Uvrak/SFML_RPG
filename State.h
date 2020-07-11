@@ -4,6 +4,9 @@
 #include "Entity.h"
 #include "Gui.h"
 #include "GraphicsSettings.h"
+class Player;
+class GraphicstSettings;
+class State;
 
 class StateData
 {
@@ -24,6 +27,7 @@ class State
 private:
 
 protected:
+	StateData* stateData;
 	std::stack<State*>* states;
 
 	sf::RenderWindow* window;
@@ -46,7 +50,7 @@ protected:
 	virtual void initKeybinds() = 0;
 
 public:
-	State(StateData& state_data);
+	State(StateData* state_data);
 	virtual ~State();
 	//Accessors
 	const bool& getQuit() const;
