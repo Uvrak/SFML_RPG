@@ -9,6 +9,8 @@ private:
 	
 	//variables
 	GraphicsSettings gfxSettings;
+	StateData statedata;
+	float gridSize;
 	sf::RenderWindow *window;
 	sf::Event sfEvent;
 	
@@ -21,6 +23,7 @@ private:
 	//Initialization
 	void initVariables();
 	void initGraphicsSettings();
+	void initStateData();
 	void initWindow();
 	void initStates();
 	void initKeys();

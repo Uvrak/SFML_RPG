@@ -8,12 +8,23 @@ void Game::initVariables()
     this->window = nullptr;
     
     this->dt = 0.f;
+
+    this->gridSize = 50.f;
 }
 
 void Game::initGraphicsSettings()
 {
     this->gfxSettings.loadFromFile("Config/graphics.ini");
 
+}
+
+void Game::initStateData()
+{
+    this->statedata.window = this->window;
+    this->statedata.gfxSettings = &this->gfxSettings;
+    this->statedata.supportedKeys = &this->supportedKeys;
+    this->statedata.states = &this->states;
+    this->statedata.gridSize = this->gridSize;
 }
 
 //Initializer functions
@@ -79,6 +90,7 @@ Game::Game()
     this->initGraphicsSettings();
     this->initWindow();
     this->initKeys();
+    this->initStateData();
     this->initStates();
 }
 
