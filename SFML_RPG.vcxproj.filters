@@ -84,6 +84,9 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Headerdateien</Filter>
     </ClCompile>
+    <ClCompile Include="GraphicsSettings.cpp">
+      <Filter>Ressourcendateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="State.h">
@@ -133,6 +136,9 @@
     </ClInclude>
     <ClInclude Include="stdafx.h">
       <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicsSettings.h">
+      <Filter>Ressourcendateien</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
