@@ -25,3 +25,11 @@ void Tile::render(sf::RenderTarget& target)
 {
 	target.draw(this->tile);
 }
+
+void Tile::addTile()
+{
+}
+
+void Tile::removeTile()
+{
+}

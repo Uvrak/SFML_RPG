@@ -12,7 +12,7 @@ private:
 	sf::Vector2u maxSize;
 	std::vector< std::vector< std::vector < Tile > > > map;
 public:
-	TileMap();
+	TileMap(float gridSize, unsigned width, unsigned height);
 	virtual ~TileMap();
 
 	//Functions

@@ -25,6 +25,9 @@ public:
 	//Functions
 	void update();
 	void render(sf::RenderTarget& target);
+
+	void addTile();
+	void removeTile();
 };
 
 #endif
