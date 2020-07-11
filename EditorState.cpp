@@ -98,6 +98,15 @@ void EditorState::updateInput(const float& dt)
 	}
 }
 
+void EditorState::updateEditorInput(const float& dt)
+{
+	//Add a tile
+	if(sf::Mouse::isButtonPressed(sf::Mouse::Left) && this->getKeytime())
+	{
+		this->tileMap->addTile(this->mousePosGrid.x ,this->mousePosGrid.y, 0);
+	}
+}
+
 void EditorState::updateButtons()
 {
 	for (auto& it : this->buttons)
@@ -129,6 +138,8 @@ void EditorState::update(const float& dt)
 		this->updateButtons();
 
 		this->updateGui();
+
+		this->updateEditorInput(dt);
 	}
 	else
 	{

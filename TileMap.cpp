@@ -41,6 +41,30 @@ TileMap::~TileMap()
 	}
 }
 
+void TileMap::addTile(const unsigned x, const unsigned y, const unsigned z)
+{
+	/* Take two indicies from the mouse position in the grid and add a tile to that position
+	if the internal tilemap array allows it.*/
+
+	if (x < this->maxSize.x && x >= 0 &&
+		y < this->maxSize.y && y >= 0 &&
+		z <= this->layers && z >= 0)
+	{
+		if (this->map[x][y][z] == nullptr)
+		{
+			/* OK to add tile.*/
+			this->map[x][y][z] = new Tile(x * this->gridSizeF, y * this->gridSizeF, this->gridSizeF);
+			std::cout << "DEBUG: ADDED TILE!\n";
+			
+		}
+		
+	}
+}
+
+void TileMap::removeTile()
+{
+}
+
 //Functions
 void TileMap::update()
 {

@@ -16,6 +16,8 @@ public:
 	virtual ~TileMap();
 
 	//Functions
+	void addTile(const unsigned x, const unsigned, const unsigned z);
+	void removeTile();
 	void update();
 	void render(sf::RenderTarget& target);
 };
