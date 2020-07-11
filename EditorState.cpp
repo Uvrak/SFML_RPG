@@ -100,10 +100,15 @@ void EditorState::updateInput(const float& dt)
 
 void EditorState::updateEditorInput(const float& dt)
 {
-	//Add a tile
+	//Add a tile to the tilemap
 	if(sf::Mouse::isButtonPressed(sf::Mouse::Left) && this->getKeytime())
 	{
 		this->tileMap->addTile(this->mousePosGrid.x ,this->mousePosGrid.y, 0);
+	}
+	//Remove a tile from the tilemap
+	else if(sf::Mouse::isButtonPressed(sf::Mouse::Right) && this->getKeytime())
+	{
+		this->tileMap->removeTile(this->mousePosGrid.x, this->mousePosGrid.y, 0);
 	}
 }
 

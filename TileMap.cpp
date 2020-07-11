@@ -61,8 +61,21 @@ void TileMap::addTile(const unsigned x, const unsigned y, const unsigned z)
 	}
 }
 
-void TileMap::removeTile()
+void TileMap::removeTile(const unsigned x, const unsigned y, const unsigned z)
 {
+	if (x < this->maxSize.x && x >= 0 &&
+		y < this->maxSize.y && y >= 0 &&
+		z <= this->layers && z >= 0)
+	{
+		if (this->map[x][y][z] != nullptr)
+		{
+			/* OK to add tile.*/
+			this->map[x][y][z] = nullptr;
+			std::cout << "DEBUG: Removed TILE!\n";
+
+		}
+
+	}
 }
 
 //Functions
