@@ -124,33 +124,24 @@ void EditorState::updateEditorInput(const float& dt)
 	//Add a tile to the tilemap
 	if(sf::Mouse::isButtonPressed(sf::Mouse::Left) && this->getKeytime())
 	{
-		this->tileMap->addTile(this->mousePosGrid.x ,this->mousePosGrid.y, 0, this->textureRect);
+		if(!this->textureSelector->getActive())
+		{
+			this->tileMap->addTile(this->mousePosGrid.x, this->mousePosGrid.y, 0, this->textureRect);
+		}
+		else
+		{
+			this->textureRect = this->textureSelector->getTextureRect();
+		}
+
+		
 	}
 	//Remove a tile from the tilemap
 	else if(sf::Mouse::isButtonPressed(sf::Mouse::Right) && this->getKeytime())
 	{
-		this->tileMap->removeTile(this->mousePosGrid.x, this->mousePosGrid.y, 0);
-	}
-
-	
-	//change texture;
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) 
-	{
-		
-		if(this->textureRect.left < 800)
+		if (!sf::Mouse::isButtonPressed(sf::Mouse::Left) && this->getKeytime())
 		{
-			this->textureRect.left += 100;
+			this->tileMap->removeTile(this->mousePosGrid.x, this->mousePosGrid.y, 0);
 		}
-
-	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-	{
-		
-		if (this->textureRect.left > 0)
-		{
-			this->textureRect.left -= 100;
-		}
-
 	}
 }
 
@@ -164,9 +155,14 @@ void EditorState::updateButtons()
 
 void EditorState::updateGui()
 {
-	this->selectorRect.setTextureRect(this->textureRect);
-	this->selectorRect.setPosition(this->mousePosGrid.x * this->stateData->gridSize, this->mousePosGrid.y * this->stateData->gridSize);
-	
+	this->textureSelector->update(this->mousePosWindow);
+
+	if (!this->textureSelector->getActive())
+	{
+		this->selectorRect.setTextureRect(this->textureRect);
+		this->selectorRect.setPosition(this->mousePosGrid.x * this->stateData->gridSize, this->mousePosGrid.y * this->stateData->gridSize);
+	}
+
 	this->cursorText.setPosition(this->mousePosView.x + 100.f, this->mousePosView.y);
 	
 	std::stringstream ss;
@@ -174,9 +170,6 @@ void EditorState::updateGui()
 		<< this->mousePosGrid.x << " " << this->mousePosGrid.y << "\n"
 		<< this->textureRect.left << " " << this->textureRect.top;
 	this->cursorText.setString(ss.str());
-
-	this->textureSelector->update(this->mousePosWindow);
-	
 }
 
 void EditorState::updatePauseMenuButtons()
@@ -221,7 +214,9 @@ void EditorState::renderButtons(sf::RenderTarget& target)
 
 void EditorState::renderGui(sf::RenderTarget& target)
 {
-	target.draw(this->selectorRect);
+
+	if (!this->textureSelector->getActive()) 
+		target.draw(this->selectorRect);
 	this->textureSelector->render(target);
 	
 	target.draw(this->cursorText);
